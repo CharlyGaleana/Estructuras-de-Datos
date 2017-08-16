@@ -16,7 +16,12 @@ int main(){
 	list->removeAt(3);
 	list->insertAtTheEnd(-1);
 	list->printElements();
-	list->printElementsInInverseOrder();
+	//list->printElementsInInverseOrder();
+
+	list->reverseList();
+	list->insertAtTheEnd(10);
+	std::cout << "\n";
+	list->printElements();
 	int a;
 	std::cin >> a;
 	return 0;

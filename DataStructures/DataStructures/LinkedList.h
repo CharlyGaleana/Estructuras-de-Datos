@@ -44,7 +44,10 @@ public:
 	/**
 	*Returns the size of the list.
 	*/
-	
+	/**
+	*Reverse the order of the list
+	*/
+	void reverseList();
 	int size();
 
 private:
@@ -52,6 +55,8 @@ private:
 	*Returns the node at the specified index, if no such node exist, it returns NULL.
 	*/
 	ListNode<T> * getNodeAt(int index);
+	ListNode<T> * reverseList(ListNode<T> * node);
+	ListNode<T> * reverseListLinks(ListNode<T> * node);
 
 	int _size;
 	ListNode<T> * root;
@@ -178,6 +183,25 @@ void LinkedList<T>::printElementsInInverseOrder(){
 		std::cout << stack.top() << "\n";
 		stack.pop();
 	}
+}
+
+template<class T>
+ListNode<T> * LinkedList<T>::reverseList(ListNode<T> * node) {
+	if (node == NULL)
+		return root->getNext();
+
+	T value = node->getData();
+	ListNode<T> * temp = reverseList(node->getNext());
+	temp->setData(value);
+
+	return temp->getNext();
+}
+
+template<class T>
+
+template<class T>
+void LinkedList<T>::reverseList() {
+	reverseList(root->getNext());
 }
 
 template<class T>
