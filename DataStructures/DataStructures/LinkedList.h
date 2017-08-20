@@ -198,8 +198,6 @@ ListNode<T> * LinkedList<T>::reverseList(ListNode<T> * node) {
 }
 
 template<class T>
-
-template<class T>
 void LinkedList<T>::reverseList() {
 	reverseList(root->getNext());
 }
