@@ -1,0 +1,5 @@
+﻿  EditDistance.cpp
+c:\users\hca\desktop\estructuras-de-datos\recursion\recursion\editdistance.cpp(12): warning C4018: '>=': no coinciden signed/unsigned
+c:\users\hca\desktop\estructuras-de-datos\recursion\recursion\editdistance.cpp(13): warning C4018: '>=': no coinciden signed/unsigned
+  Recursion.vcxproj -> C:\Users\hca\Desktop\Estructuras-de-Datos\Recursion\Debug\Recursion.exe
+  Recursion.vcxproj -> C:\Users\hca\Desktop\Estructuras-de-Datos\Recursion\Debug\Recursion.pdb (Partial PDB)
