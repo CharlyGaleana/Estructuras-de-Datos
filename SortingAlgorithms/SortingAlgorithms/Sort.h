@@ -10,9 +10,10 @@ public:
 	void static selectionSort(T * begin, T * end);
 	void static bubbleSort(T * begin, T * end);
 	void static mergeSort(T * begin, T * end);
+	void static quickSort(T * begin, T * end);
 
 private:
-
+	int partition(T * begin, T * end);
 
 };
 
@@ -49,7 +50,7 @@ void Sort<T>::selectionSort(T * begin, T * end) {
 
 	for (i = 0; i < n; i++) {
 		minIdx = i;
-		
+
 		for (j = minIdx + 1; j < n; j++)
 			if (A[j] < A[minIdx])
 				minIdx = j;
@@ -86,17 +87,17 @@ void Sort<T>::mergeSort(T * begin, T * end) {
 
 	//merge
 	T * aux = new int[n];
-	T * leftIdx = begin, rightIdx = mid;
+	T * leftIdx = begin, * rightIdx = mid;
 	int i = 0;
 	while (leftIdx != mid || rightIdx != end) {
 		if (leftIdx == mid)
-			aux[i++] = T[rightIdx++];
+			aux[i++] = *(rightIdx++);
 		else if (rightIdx == end)
-			aux[i++] = T[leftIdx++];
-		else if (T[leftIdx] < T[rightIdx])
-			aux[i++] = T[leftIdx++];
+			aux[i++] = *(leftIdx++);
+		else if (*leftIdx < *rightIdx)
+			aux[i++] = *(leftIdx++);
 		else
-			aux[i++] = T[rightIdx++];
+			aux[i++] = *(rightIdx++);
 	}
 
 	for (i = 0; i < n; i++) {
@@ -107,5 +108,28 @@ void Sort<T>::mergeSort(T * begin, T * end) {
 	delete aux;
 }
 
-#endif // !SORT_H
+template <class T> 
+void Sort<T>::quickSort(T * begin, T *  end) {
+	if (begin + 1 == end)
+		return;
+	int p = partition(begin, end, p);
 
+	quickSort(begin, begin + p);
+	quicksort(begin + p + 1, end);
+}
+
+template <class T>
+int partition(T * begin, T * end) {
+	T * A = begin;
+	int n = end - begin;
+	T pivot = A[0];
+	
+	int i, j = 0;
+	for (i = 0; i < n; i++) 
+		if (A[i] < pivot)
+			swap(A[i], A[j++]);
+
+	return i;
+}
+
+#endif // !SORT_H

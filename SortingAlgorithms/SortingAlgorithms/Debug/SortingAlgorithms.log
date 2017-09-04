@@ -1,1 +1,15 @@
-﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.Cpp.Platform.targets(57,5): error MSB8020: The build tools for v141 (Platform Toolset = 'v141') cannot be found. To build using the v141 build tools, please install v141 build tools.  Alternatively, you may upgrade to the current Visual Studio tools by selecting the Project menu or right-click the solution, and then selecting "Retarget solution".
+﻿  main.cpp
+c:\users\hca\desktop\estructuras-de-datos\sortingalgorithms\sortingalgorithms\sort.h(113): error C2065: 'begind': identificador no declarado
+  c:\users\hca\desktop\estructuras-de-datos\sortingalgorithms\sortingalgorithms\sort.h(112): note: durante la compilación de la función miembro de plantilla de clase 'void Sort<int>::quickSort(T *,T *)'
+          with
+          [
+              T=int
+          ]
+  c:\users\hca\desktop\estructuras-de-datos\sortingalgorithms\sortingalgorithms\main.cpp(14): note: vea la referencia a la creación de instancias de plantilla de función 'void Sort<int>::quickSort(T *,T *)' que se está compilando
+          with
+          [
+              T=int
+          ]
+  c:\users\hca\desktop\estructuras-de-datos\sortingalgorithms\sortingalgorithms\main.cpp(6): note: vea la referencia a la creación de instancias de plantilla de clase 'Sort<int>' que se está compilando
+c:\users\hca\desktop\estructuras-de-datos\sortingalgorithms\sortingalgorithms\sort.h(115): error C2660: 'Sort<int>::partition': la función no acepta 3 argumentos
+c:\users\hca\desktop\estructuras-de-datos\sortingalgorithms\sortingalgorithms\sort.h(118): error C3861: 'quicksort': no se encontró el identificador
