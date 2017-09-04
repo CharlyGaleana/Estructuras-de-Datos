@@ -9,6 +9,7 @@ public:
 	void static insertionSort(T * begin, T * end);
 	void static selectionSort(T * begin, T * end);
 	void static bubbleSort(T * begin, T * end);
+	void static mergeSort(T * begin, T * end);
 
 private:
 
@@ -68,6 +69,42 @@ void Sort<T>::bubbleSort(T * begin, T * end) {
 		for (i = 0; i < j - 1; i++)
 			if (A[i] > A[i + 1])
 				std::swap(A[i], A[i + 1]);
+}
+
+template <class T>
+void Sort<T>::mergeSort(T * begin, T * end) {
+
+	if (begin + 1 == end)
+		return;
+
+	T * A = begin;
+	int n = end - begin;
+	T * mid = begin + (n / 2);
+
+	mergeSort(begin, mid);
+	mergeSort(mid, end);
+
+	//merge
+	T * aux = new int[n];
+	T * leftIdx = begin, rightIdx = mid;
+	int i = 0;
+	while (leftIdx != mid || rightIdx != end) {
+		if (leftIdx == mid)
+			aux[i++] = T[rightIdx++];
+		else if (rightIdx == end)
+			aux[i++] = T[leftIdx++];
+		else if (T[leftIdx] < T[rightIdx])
+			aux[i++] = T[leftIdx++];
+		else
+			aux[i++] = T[rightIdx++];
+	}
+
+	for (i = 0; i < n; i++) {
+		(*begin) = aux[i];
+		begin++;
+	}
+
+	delete aux;
 }
 
 #endif // !SORT_H
