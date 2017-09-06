@@ -13,7 +13,7 @@ public:
 	void static quickSort(T * begin, T * end);
 
 private:
-	int partition(T * begin, T * end);
+	int static partition(T * begin, T * end);
 
 };
 
@@ -108,28 +108,37 @@ void Sort<T>::mergeSort(T * begin, T * end) {
 	delete aux;
 }
 
-template <class T> 
-void Sort<T>::quickSort(T * begin, T *  end) {
-	if (begin + 1 == end)
-		return;
-	int p = partition(begin, end, p);
-
-	quickSort(begin, begin + p);
-	quicksort(begin + p + 1, end);
-}
-
 template <class T>
-int partition(T * begin, T * end) {
+int Sort<T>::partition(T * begin, T * end) {
 	T * A = begin;
 	int n = end - begin;
-	T pivot = A[0];
-	
-	int i, j = 0;
-	for (i = 0; i < n; i++) 
-		if (A[i] < pivot)
-			swap(A[i], A[j++]);
+	int pivot = 0;
 
-	return i;
+	int i, j = 0;
+	for (i = 1; i < n; i++)
+		if (A[i] < A[pivot]) {
+			if (pivot == j)
+				pivot = i;
+			std::swap(A[i], A[j++]);
+		}
+
+	std::swap(A[j], A[pivot]);
+
+	/*for (i = 0; i < n; i++)
+		std::cout << A[i] << " ";
+	std::cout << "\n";*/
+
+	return j;
+}
+
+template <class T> 
+void Sort<T>::quickSort(T * begin, T *  end) {
+	if (begin + 1 >= end)
+		return;
+	int p = partition(begin, end);
+
+	quickSort(begin, begin + p);
+	quickSort(begin + p + 1, end);
 }
 
 #endif // !SORT_H
