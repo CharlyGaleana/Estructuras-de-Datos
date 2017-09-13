@@ -1,0 +1,48 @@
+
+----In order----
+
+----IverseOrder----
+
+-----randomorder----
+insertion sort:
+
+Comparisons 2577.33
+ Time: 4.26667
+Comparisons 15739.8
+ Time: 29.2667
+Comparisons 62729.8
+ Time: 106.233
+bubble sort:
+
+Comparisons 4950
+ Time: 23.8667
+Comparisons 31125
+ Time: 161.833
+Comparisons 124750
+ Time: 565.4
+quick sort:
+
+Comparisons 780.8
+ Time: 2.66667
+Comparisons 2407.73
+ Time: 8.13333
+Comparisons 5493.5
+ Time: 18.1667
+merge sort:
+
+Comparisons 540.4
+ Time: 2.73333
+Comparisons 1676.73
+ Time: 8.26667
+Comparisons 3853.87
+ Time: 19.8667
+Comparisons 6234.5
+ Time: 31.1
+Comparisons 8709.83
+ Time: 43.1
+Comparisons 25116.8
+ Time: 120.1
+Comparisons 55226
+ Time: 277.2
+Comparisons 120450
+ Time: 704.667

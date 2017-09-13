@@ -1,0 +1,307 @@
+
+----In order----
+
+selection sort:
+
+for n = 100
+Comparisons: 4950
+time: 2
+for n = 250
+Comparisons: 31125
+time: 10
+for n = 500
+Comparisons: 124750
+time: 38
+for n = 750
+Comparisons: 280875
+time: 84
+for n = 1000
+Comparisons: 499500
+time: 137
+for n = 2500
+Comparisons: 3123750
+time: 1013
+for n = 5000
+Comparisons: 12497500
+time: 3315
+for n = 10000
+Comparisons: 49995000
+time: 13020
+
+insertion sort:
+
+for n = 100
+Comparisons: 99
+time: 0
+for n = 250
+Comparisons: 249
+time: 1
+for n = 500
+Comparisons: 499
+time: 1
+for n = 750
+Comparisons: 749
+time: 2
+for n = 1000
+Comparisons: 999
+time: 2
+for n = 2500
+Comparisons: 2499
+time: 4
+for n = 5000
+Comparisons: 4999
+time: 9
+
+bubble sort:
+
+for n = 100
+Comparisons: 4950
+time: 1
+for n = 250
+Comparisons: 31125
+time: 9
+for n = 500
+Comparisons: 124750
+time: 34
+for n = 750
+Comparisons: 280875
+time: 82
+for n = 1000
+Comparisons: 499500
+time: 146
+for n = 2500
+Comparisons: 3123750
+time: 939
+for n = 5000
+Comparisons: 12497500
+time: 3813
+for n = 10000
+Comparisons: 49995000
+time: 15654
+
+quick sort:
+
+for n = 100
+Comparisons: 5148
+time: 3
+for n = 250
+Comparisons: 31623
+time: 11
+for n = 500
+Comparisons: 125748
+time: 42
+for n = 750
+Comparisons: 282373
+time: 86
+for n = 1000
+Comparisons: 501498
+time: 157
+for n = 2500
+Comparisons: 3128748
+time: 863
+for n = 5000
+Comparisons: 12507498
+time: 3416
+for n = 10000
+Comparisons: 50014998
+time: 13548
+
+merge sort:
+
+for n = 100
+Comparisons: 317
+time: 103
+for n = 250
+Comparisons: 985
+time: 125
+for n = 500
+Comparisons: 2221
+time: 18
+for n = 750
+Comparisons: 3470
+time: 28
+for n = 1000
+Comparisons: 4942
+time: 42
+for n = 2500
+Comparisons: 13680
+time: 119
+for n = 5000
+Comparisons: 29858
+time: 245
+for n = 10000
+Comparisons: 64734
+time: 527
+
+----IverseOrder----
+
+selection sort:
+
+for n = 100
+Comparisons: 4950
+time: 2
+for n = 250
+Comparisons: 31125
+time: 10
+for n = 500
+Comparisons: 124750
+time: 38
+for n = 750
+Comparisons: 280875
+time: 83
+for n = 1000
+Comparisons: 499500
+time: 153
+for n = 2500
+Comparisons: 3123750
+time: 988
+for n = 5000
+Comparisons: 12497500
+time: 3900
+for n = 10000
+Comparisons: 49995000
+time: 14706
+
+insertion sort:
+
+for n = 100
+Comparisons: 4949
+time: 5
+for n = 250
+Comparisons: 31123
+time: 31
+for n = 500
+Comparisons: 124748
+time: 129
+for n = 750
+Comparisons: 280873
+time: 290
+for n = 1000
+Comparisons: 499492
+time: 503
+for n = 2500
+Comparisons: 3123738
+time: 3204
+for n = 5000
+Comparisons: 12497485
+time: 12934
+for n = 10000
+Comparisons: 49994969
+time: 52453
+
+bubble sort:
+
+for n = 100
+Comparisons: 4950
+time: 24
+for n = 250
+Comparisons: 31125
+time: 163
+for n = 500
+Comparisons: 124750
+time: 670
+for n = 750
+Comparisons: 280875
+time: 1462
+for n = 1000
+Comparisons: 499500
+time: 2594
+for n = 2500
+Comparisons: 3123750
+time: 18168
+for n = 5000
+Comparisons: 12497500
+time: 64189
+for n = 10000
+Comparisons: 49995000
+time: 256790
+
+quick sort:
+
+for n = 100
+Comparisons: 5016
+time: 37
+for n = 250
+Comparisons: 30613
+time: 190
+for n = 500
+Comparisons: 123069
+time: 754
+for n = 750
+Comparisons: 276315
+time: 1503
+for n = 1000
+Comparisons: 488152
+time: 2658
+for n = 2500
+Comparisons: 3066873
+time: 15882
+for n = 5000
+Comparisons: 12270493
+time: 63514
+for n = 10000
+Comparisons: 49017832
+time: 252485
+
+merge sort:
+
+for n = 100
+Comparisons: 356
+time: 2
+for n = 250
+Comparisons: 1011
+time: 8
+for n = 500
+Comparisons: 2272
+time: 18
+for n = 750
+Comparisons: 3769
+time: 28
+for n = 1000
+Comparisons: 5044
+time: 40
+for n = 2500
+Comparisons: 14752
+time: 119
+for n = 5000
+Comparisons: 32004
+time: 245
+for n = 10000
+Comparisons: 69008
+time: 532
+
+-----randomorder----
+selection sort:
+
+Comparisons 4950
+ Time: 1.93333
+Comparisons 31125
+ Time: 9.76667
+Comparisons 124750
+ Time: 37.4333
+Comparisons 280875
+ Time: 83.5667
+Comparisons 499500
+ Time: 145.233
+Comparisons 3.12375e+006
+ Time: 917.967
+Comparisons 1.24975e+007
+ Time: 3673.37
+Comparisons 4.9995e+007
+ Time: 14626.5
+insertion sort:
+
+Comparisons 2577.33
+ Time: 2.63333
+Comparisons 15739.8
+ Time: 16.6333
+Comparisons 62729.8
+ Time: 63.8
+Comparisons 142539
+ Time: 144.6
+Comparisons 251601
+ Time: 256.833
+Comparisons 1.56222e+006
+ Time: 1626.83
+Comparisons 6.25312e+006
+ Time: 
