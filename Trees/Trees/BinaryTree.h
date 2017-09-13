@@ -12,6 +12,7 @@ public:
 	virtual void insert(T data) = 0;
 	virtual std::vector<T> preOrder() = 0;
 	virtual std::vector<T> inOrder() = 0;
+	virtual T minValue() = 0;
 };
  
 //template <class T>

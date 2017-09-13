@@ -1,11 +1,11 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
-#include "LinkedBinaryTree.h"
+#include "BinarySearchTree.h"
 
 int main() {
 
-	LinkedBinaryTree<int> * tree = new LinkedBinaryTree<int>;
+	BinarySearchTree<int> * tree = new BinarySearchTree<int>;
 	tree->insert(1);
 	tree->insert(2);
 	tree->insert(4);
@@ -19,7 +19,15 @@ int main() {
 	std::vector<int> p = tree->inOrder();
 	for (int i = 0; i < p.size(); i++)
 		std::cout << p[i] << " ";
-	std::cout << "\n";
+	std::cout << "\n\n";
+
+	tree->deleteElement(1);
+	tree->deleteElement(1);
+
+	p = tree->inOrder();
+	for (int i = 0; i < p.size(); i++)
+		std::cout << p[i] << " ";
+	std::cout << "\n\n";
 
 	std::cout << tree->depth();
 
