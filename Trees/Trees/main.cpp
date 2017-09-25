@@ -16,7 +16,7 @@ int main() {
 	tree->insert(0);
 	tree->insert(-1);
 
-	std::vector<int> p = tree->inOrder();
+	std::vector<int> p /*= tree->inOrder()*/;
 	for (int i = 0; i < p.size(); i++)
 		std::cout << p[i] << " ";
 	std::cout << "\n\n";

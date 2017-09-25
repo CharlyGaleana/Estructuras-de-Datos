@@ -235,14 +235,12 @@ void BinarySearchTree<T>::deleteElement(T data) {
 
 		node->data = prev->data;
 
-		if (node == parent) {
-			delete prev;
-			return;
-		}
+		if (parent == node)
+			node->right = prev->right;
+		else
+			parent->left = prev->right;
 
-		parent->left = prev->right;
 		delete prev;
-
 		return;
 	}
 
