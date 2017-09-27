@@ -16,13 +16,38 @@ int main() {
 	tree->insert(0);
 	tree->insert(-1);
 
-	std::vector<int> p /*= tree->inOrder()*/;
+	std::vector<int> p = tree->inOrder();
 	for (int i = 0; i < p.size(); i++)
 		std::cout << p[i] << " ";
 	std::cout << "\n\n";
 
 	tree->deleteElement(1);
 	tree->deleteElement(1);
+
+	p = tree->inOrder();
+	for (int i = 0; i < p.size(); i++)
+		std::cout << p[i] << " ";
+	std::cout << "\n\n";
+
+	tree->insert(7);
+	tree->insert(-4);
+	tree->insert(9);
+	tree->insert(1);
+
+	p = tree->inOrder();
+	for (int i = 0; i < p.size(); i++)
+		std::cout << p[i] << " ";
+	std::cout << "\n\n";
+
+	tree->deleteElement(1000);
+
+	p = tree->inOrder();
+	for (int i = 0; i < p.size(); i++)
+		std::cout << p[i] << " ";
+	std::cout << "\n\n";
+
+	tree->deleteElement(-1);
+	tree->deleteElement(2);
 
 	p = tree->inOrder();
 	for (int i = 0; i < p.size(); i++)

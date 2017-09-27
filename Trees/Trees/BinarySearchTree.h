@@ -16,8 +16,7 @@ struct Node {
 	}
 
 	~Node() {
-		if (left != NULL) delete left;
-		if (right != NULL) delete right;
+		
 	}
 
 	Node(T data, Node<T> * left, Node<T> * right) {
