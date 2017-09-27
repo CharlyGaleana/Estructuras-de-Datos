@@ -2,10 +2,11 @@
 #include <algorithm>
 #include <vector>
 #include "BinarySearchTree.h"
+#include "AVLTree.h"
 
 int main() {
 
-	BinarySearchTree<int> * tree = new BinarySearchTree<int>;
+	AVLTree<int> * tree = new AVLTree<int>;
 	tree->insert(1);
 	tree->insert(2);
 	tree->insert(4);
@@ -21,6 +22,7 @@ int main() {
 		std::cout << p[i] << " ";
 	std::cout << "\n\n";
 
+	/*
 	tree->deleteElement(1);
 	tree->deleteElement(1);
 
@@ -55,6 +57,7 @@ int main() {
 	std::cout << "\n\n";
 
 	std::cout << tree->depth();
+	*/
 
 	int a;
 	std::cin >> a;

@@ -46,6 +46,7 @@ public:
 private:
 	Node<T> * root;
 	int _size;
+
 	bool contains(Node<T> * node, T data);
 	int depth(Node<T> * root);
 	void inOrder(Node<T> * node, std::vector<T> & list);
