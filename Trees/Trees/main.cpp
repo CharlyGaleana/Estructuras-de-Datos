@@ -1,7 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
-#include "BinarySearchTree.h"
+//#include "BinarySearchTree.h"
 #include "AVLTree.h"
 
 int main() {

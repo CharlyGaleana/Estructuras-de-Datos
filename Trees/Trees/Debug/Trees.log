@@ -1,8 +1,4 @@
 ﻿  main.cpp
-c:\users\hca\desktop\estructuras-de-datos\trees\trees\main.cpp(20): warning C4018: '<': no coinciden signed/unsigned
-c:\users\hca\desktop\estructuras-de-datos\trees\trees\main.cpp(28): warning C4018: '<': no coinciden signed/unsigned
-c:\users\hca\desktop\estructuras-de-datos\trees\trees\main.cpp(38): warning C4018: '<': no coinciden signed/unsigned
-c:\users\hca\desktop\estructuras-de-datos\trees\trees\main.cpp(45): warning C4018: '<': no coinciden signed/unsigned
-c:\users\hca\desktop\estructuras-de-datos\trees\trees\main.cpp(53): warning C4018: '<': no coinciden signed/unsigned
+c:\users\hca\desktop\estructuras-de-datos\trees\trees\main.cpp(21): warning C4018: '<': no coinciden signed/unsigned
   Trees.vcxproj -> C:\Users\hca\Desktop\Estructuras-de-Datos\Trees\Debug\Trees.exe
   Trees.vcxproj -> C:\Users\hca\Desktop\Estructuras-de-Datos\Trees\Debug\Trees.pdb (Partial PDB)
