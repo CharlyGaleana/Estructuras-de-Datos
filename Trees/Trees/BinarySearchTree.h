@@ -198,7 +198,7 @@ void BinarySearchTree<T>::deleteElement(T data) {
 		return;
 
 	//find node;
-	Node<T> * node, * parent, * prev;
+	Node<T> * node, * parent, * curr;
 	node = root; parent = NULL;
 
 	while (node != NULL && node->data != data) {
@@ -226,21 +226,21 @@ void BinarySearchTree<T>::deleteElement(T data) {
 
 	//if node has right child swap the values in node and its in-order succesor.
 	if (node->right != NULL) {
-		prev = node->right;
+		curr = node->right;
 		parent = node;
-		while (prev->left != NULL) {
-			parent = prev;
-			prev = prev->left;
+		while (curr->left != NULL) {
+			parent = curr;
+			curr = curr->left;
 		}
 
-		node->data = prev->data;
+		node->data = curr->data;
 
 		if (parent == node)
-			node->right = prev->right;
+			node->right = curr->right;
 		else
-			parent->left = prev->right;
+			parent->left = curr->right;
 
-		delete prev;
+		delete curr;
 		return;
 	}
 

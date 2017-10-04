@@ -1,38 +1,48 @@
 ﻿  main.cpp
 c:\users\hca\desktop\estructuras-de-datos\trees\trees\main.cpp(17): warning C4018: '<': no coinciden signed/unsigned
-c:\users\hca\desktop\estructuras-de-datos\trees\trees\avltree.h(142): warning C4101: 'D': variable local sin referencia
-  c:\users\hca\desktop\estructuras-de-datos\trees\trees\avltree.h(141): note: durante la compilación de la función miembro de plantilla de clase 'void AVLTree<int>::balanceLeftRight(Node<T> *)'
+c:\users\hca\desktop\estructuras-de-datos\trees\trees\avltree.h(143): warning C4101: 'D': variable local sin referencia
+  c:\users\hca\desktop\estructuras-de-datos\trees\trees\avltree.h(142): note: durante la compilación de la función miembro de plantilla de clase 'void AVLTree<int>::balanceLeftRight(Node<T> *)'
           with
           [
               T=int
           ]
-  c:\users\hca\desktop\estructuras-de-datos\trees\trees\avltree.h(220): note: vea la referencia a la creación de instancias de plantilla de función 'void AVLTree<int>::balanceLeftRight(Node<T> *)' que se está compilando
+  c:\users\hca\desktop\estructuras-de-datos\trees\trees\avltree.h(221): note: vea la referencia a la creación de instancias de plantilla de función 'void AVLTree<int>::balanceLeftRight(Node<T> *)' que se está compilando
           with
           [
               T=int
           ]
-  c:\users\hca\desktop\estructuras-de-datos\trees\trees\avltree.h(278): note: durante la compilación de la función miembro de plantilla de clase 'void AVLTree<int>::inOrder(Node<T> *,std::vector<T,std::allocator<_Ty>> &)'
+  c:\users\hca\desktop\estructuras-de-datos\trees\trees\avltree.h(216): note: durante la compilación de la función miembro de plantilla de clase 'void AVLTree<int>::balance(Node<T> *)'
+          with
+          [
+              T=int
+          ]
+  c:\users\hca\desktop\estructuras-de-datos\trees\trees\avltree.h(237): note: vea la referencia a la creación de instancias de plantilla de función 'void AVLTree<int>::balance(Node<T> *)' que se está compilando
+          with
+          [
+              T=int
+          ]
+  c:\users\hca\desktop\estructuras-de-datos\trees\trees\avltree.h(286): note: durante la compilación de la función miembro de plantilla de clase 'void AVLTree<int>::inOrder(Node<T> *,std::vector<T,std::allocator<_Ty>> &)'
           with
           [
               T=int,
               _Ty=int
           ]
-  c:\users\hca\desktop\estructuras-de-datos\trees\trees\avltree.h(290): note: vea la referencia a la creación de instancias de plantilla de función 'void AVLTree<int>::inOrder(Node<T> *,std::vector<T,std::allocator<_Ty>> &)' que se está compilando
+  c:\users\hca\desktop\estructuras-de-datos\trees\trees\avltree.h(298): note: vea la referencia a la creación de instancias de plantilla de función 'void AVLTree<int>::inOrder(Node<T> *,std::vector<T,std::allocator<_Ty>> &)' que se está compilando
           with
           [
               T=int,
               _Ty=int
           ]
-  c:\users\hca\desktop\estructuras-de-datos\trees\trees\avltree.h(78): note: durante la compilación de la función miembro de plantilla de clase 'AVLTree<int>::AVLTree(void)'
+  c:\users\hca\desktop\estructuras-de-datos\trees\trees\avltree.h(79): note: durante la compilación de la función miembro de plantilla de clase 'AVLTree<int>::AVLTree(void)'
   c:\users\hca\desktop\estructuras-de-datos\trees\trees\main.cpp(9): note: vea la referencia a la creación de instancias de plantilla de función 'AVLTree<int>::AVLTree(void)' que se está compilando
   c:\users\hca\desktop\estructuras-de-datos\trees\trees\main.cpp(9): note: vea la referencia a la creación de instancias de plantilla de clase 'AVLTree<int>' que se está compilando
-c:\users\hca\desktop\estructuras-de-datos\trees\trees\avltree.h(179): warning C4101: 'D': variable local sin referencia
-  c:\users\hca\desktop\estructuras-de-datos\trees\trees\avltree.h(178): note: durante la compilación de la función miembro de plantilla de clase 'void AVLTree<int>::balanceRightLeft(Node<T> *)'
+c:\users\hca\desktop\estructuras-de-datos\trees\trees\avltree.h(180): warning C4101: 'D': variable local sin referencia
+  c:\users\hca\desktop\estructuras-de-datos\trees\trees\avltree.h(179): note: durante la compilación de la función miembro de plantilla de clase 'void AVLTree<int>::balanceRightLeft(Node<T> *)'
           with
           [
               T=int
           ]
-  c:\users\hca\desktop\estructuras-de-datos\trees\trees\avltree.h(225): note: vea la referencia a la creación de instancias de plantilla de función 'void AVLTree<int>::balanceRightLeft(Node<T> *)' que se está compilando
+  c:\users\hca\desktop\estructuras-de-datos\trees\trees\avltree.h(226): note: vea la referencia a la creación de instancias de plantilla de función 'void AVLTree<int>::balanceRightLeft(Node<T> *)' que se está compilando
           with
           [
               T=int

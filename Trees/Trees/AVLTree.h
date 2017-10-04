@@ -58,13 +58,14 @@ public:
 	int size();
 	bool contains(T data);
 	void insert(T data);
-	//void deleteValue(T data);
+	void deleteElement(T data);
 	std::vector<T> inOrder();
 
 private:
 	Node<T> * root;
 	int _size;
 
+	void rebalanceToTheRoot(Node<T> * node);
 	void balance(Node<T> * node);
 	void balanceLeftLeft(Node<T> * node);
 	void balanceLeftRight(Node<T> * node);
@@ -226,6 +227,20 @@ void AVLTree<T>::balance(Node<T> * node) {
 }
 
 template <class T>
+void AVLTree<T>::rebalanceToTheRoot(Node<T> * node) {
+	Node<T> * prev;
+
+	while (node != NULL) {
+		node->h = node->updateHeight();
+		prev = node->parent;
+		if (abs(node->balanceFactor()) >= 2)
+			balance(node);
+
+		node = prev;
+	}
+}
+
+template <class T>
 void AVLTree<T>::insert(T data) {
 	Node<T> * node = new Node<T>(data);
 	_size++;
@@ -251,14 +266,79 @@ void AVLTree<T>::insert(T data) {
 		prev->right = node;
 	node->parent = prev;
 
-	while (node != NULL) {
-		node->h = node->updateHeight();
-		prev = node->parent;
-		if (abs(node->balanceFactor()) >= 2)
-			balance(node);
+	rebalanceToTheRoot(node);
+}
 
-		node = prev;
+template<class T>
+void AVLTree<T>::deleteElement(T data) {
+	if (root == NULL)
+		return;
+
+	//find node;
+	Node<T> * node, *parent, *curr;
+	node = root; parent = NULL;
+
+	while (node != NULL && node->data != data) {
+		parent = node;
+		if (data < node->data)
+			node = node->left;
+		else
+			node = node->right;
 	}
+
+	if (node == NULL)
+		return;
+
+	_size--;
+
+	//if node is the root and it doesn't have right or left child.
+	if (node == root && (node->left == NULL || node->right == NULL)) {
+		if (node->left == NULL) {
+			root = node->right;
+			node->right->parent = NULL;
+		}
+		if (node->right == NULL) {
+			root = node->left;
+			node->right->parent = NULL;
+		}
+
+		delete node;
+		return;
+	}
+
+	//if node has right child swap the values in node and its in-order succesor.
+	//rebalance from the in-order sucessor's parent
+	if (node->right != NULL) {
+		curr = node->right;
+		parent = node;
+		while (curr->left != NULL) {
+			parent = curr;
+			curr = curr->left;
+		}
+
+		node->data = curr->data;
+
+		if (parent == node) {
+			node->right = curr->right;
+			curr->right->parent = node;
+		}
+		else {
+			parent->left = curr->right;
+			curr->right->parent = parent;
+		}
+
+		rebalanceToTheRoot(parent);
+		delete curr;
+		return;
+	}
+
+	//if node doesn't have right child, make its parent point to its left child.
+	if (parent->left == node)
+		parent->left = node->left;
+	else
+		parent->right = node->left;
+
+	delete node;
 }
 
 template<class T>

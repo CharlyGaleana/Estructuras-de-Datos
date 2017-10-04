@@ -8,9 +8,9 @@ class BinaryTree {
 public:
 	virtual bool isEmpty() = 0;
 	virtual int size() = 0;
-	//virtual bool contains(T data) = 0;
+	virtual bool contains(T data) = 0;
 	virtual void insert(T data) = 0;
-	//virtual void deleteElement(T data) = 0;
+	virtual void deleteElement(T data) = 0;
 };
  
 //template <class T>
