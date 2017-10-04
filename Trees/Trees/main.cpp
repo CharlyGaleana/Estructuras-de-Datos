@@ -7,21 +7,23 @@
 int main() {
 
 	AVLTree<int> * tree = new AVLTree<int>;
-	tree->insert(1);
-	tree->insert(2);
-	tree->insert(4);
-	tree->insert(3);
-	tree->insert(8);
-	tree->insert(9);
-	tree->insert(1);
-	tree->insert(0);
-	tree->insert(-1);
 
-	std::vector<int> p = tree->inOrder();
-	for (int i = 0; i < p.size(); i++)
-		std::cout << p[i] << " ";
-	std::cout << "\n\n";
+	int n = 14;
+	int A[14] = { 100, 50, 13, 33, 8, -2, 31, 314, 69, 23, 45, 21, 48, 15 };
 
+	for (int j = 0; j < n; j++) {
+		tree->insert(A[j]);
+		std::vector<int> p = tree->inOrder();
+		for (int i = 0; i < p.size(); i++)
+			std::cout << p[i] << " ";
+		std::cout << "\n\n";
+	}
+
+	std::cout << tree->contains(13) << "\n";
+	std::cout << tree->contains(-1) << "\n";
+	std::cout << tree->contains(31) << "\n";
+	std::cout << tree->contains(68) << "\n";
+	std::cout << tree->contains(314) << "\n";
 	/*
 	tree->deleteElement(1);
 	tree->deleteElement(1);

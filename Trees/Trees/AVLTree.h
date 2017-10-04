@@ -15,6 +15,7 @@ struct Node {
 	Node(T data) {
 		this->data = data;
 		left = right = parent = NULL;
+		h = 1;
 	}
 
 	/*-----Pending
@@ -41,7 +42,7 @@ struct Node {
 	}
 
 	int updateHeight() {
-		h = max((left != NULL ? left->h, 0), (right != NULL ? right->h, 0)) + 1;
+		h = std::max((left != NULL ? left->h : 0), (right != NULL ? right->h: 0)) + 1;
 		return h;
 	}
 
@@ -55,7 +56,7 @@ public:
 
 	bool isEmpty();
 	int size();
-	//bool contains(T data);
+	bool contains(T data);
 	void insert(T data);
 	//void deleteValue(T data);
 	std::vector<T> inOrder();
@@ -80,47 +81,65 @@ AVLTree<T>::AVLTree() {
 
 template <class T>
 void AVLTree<T>::balanceLeftLeft(Node<T> * node) {
-	Node<T> * a, *b, *A, *B, *C;
+	Node<T> * a, *b, *A, *B, *C, *p;
 
 	a = node;
 	b = node->left;
 	A = b->left;
 	B = b->right;
 	C = a->right;
+	p = a->parent;
 
-	b->parent = node->parent;
+	if (p != NULL) {
+		if (p->left == a) p->left = b;
+		else p->right = b;
+	}
+	b->parent = p;
+
 	b->right = a;
 	a->parent = b;
 	a->left = B;
-	B->parent = a;
+	if(B != NULL) B->parent = a;
 
 	a->updateHeight();
 	b->updateHeight();
+
+	if (root == a)
+		root = b;
 }
 
 template<class T>
 void AVLTree<T>::balanceRightRight(Node<T> * node) {
-	Node<T> * a, *b, *A, *B, *C;
+	Node<T> * a, *b, *A, *B, *C, *p;
 
 	a = node;
 	b = node->right;
 	A = a->left;
 	B = b->left;
 	C = b->right;
+	p = a->parent;
 
-	b->parent = node->parent;
+	if (p != NULL) {
+		if (p->left == a) p->left = b;
+		else p->right = b;
+	}
+	b->parent = p;
+
 	b->left = a;
 	a->parent = b;
 	a->right = B;
-	B->parent = a;
+	if (B != NULL) B->parent = a;
 
 	a->updateHeight();
 	b->updateHeight();
+
+	if (root == a)
+		root = b;
 }
 
 template<class T>
 void AVLTree<T>::balanceLeftRight(Node<T> * node) {
-	Node<T> * a, *b, *A, *B, *C, *D;
+	Node<T> * a, *b, *c, *A, *B, *C, *D, *p;
 
 	a = node;
 	b = a->left;
@@ -130,38 +149,77 @@ void AVLTree<T>::balanceLeftRight(Node<T> * node) {
 	B = c->left;
 	C = c->right;
 	A = a->right;
+	p = a->parent;
 
-	c->parent = a->parent;
+	if (p != NULL) {
+		if (p->left == a) p->left = c;
+		else p->right = c;
+	}
+	c->parent = p;
+
 	c->left = b;
 	b->parent = c;
 	c->right = a;
 	a->parent = c;
 	b->right = B;
-	B->parent = b;
+	if (B != NULL) B->parent = b;
 	a->left = C;
-	C->parent = a;
+	if (C != NULL) C->parent = a;
 
 	a->updateHeight();
 	b->updateHeight();
 	c->updateHeight();
+
+	if (root == a)
+		root = c;
 }
 
 template<class T>
 void AVLTree<T>::balanceRightLeft(Node<T> * node) {
+	Node<T> * a, *b, *c, *A, *B, *C, *D, *p;
 
+	a = node;
+	b = a->right;
+	c = b->left;
+
+	A = a->left;
+	B = c->left;
+	C = c->right;
+	A = b->right;
+	p = a->parent;
+
+	if (p != NULL) {
+		if (p->left == a) p->left = c;
+		else p->right = c;
+	}
+	c->parent = p;
+
+	c->left = a;
+	a->parent = c;
+	c->right = b;
+	b->parent = c;
+	a->right = B;
+	if (B != NULL) B->parent = a;
+	b->left = C;
+	if (C != NULL) C->parent = b;
+
+	a->updateHeight();
+	b->updateHeight();
+	c->updateHeight();
+
+	if (root == a)
+		root = c;
 }
 
 template <class T>
 void AVLTree<T>::balance(Node<T> * node) {
-	int bf = node->balanceFactor();
-
-	if (bf == -2)
-		if (node->left->balanceFactor <= 0)
+	if (node->balanceFactor() == -2)
+		if (node->left->balanceFactor() <= 0)
 			balanceLeftLeft(node);
 		else
 			balanceLeftRight(node);
 	else
-		if (node->right->balanceFactor >= 0)
+		if (node->right->balanceFactor() >= 0)
 			balanceRightRight(node);
 		else
 			balanceRightLeft(node);
@@ -196,11 +254,24 @@ void AVLTree<T>::insert(T data) {
 	while (node != NULL) {
 		node->h = node->updateHeight();
 		prev = node->parent;
-		if (abs(node->balanceFactor) > 2)
+		if (abs(node->balanceFactor()) >= 2)
 			balance(node);
 
 		node = prev;
 	}
+}
+
+template<class T>
+bool AVLTree<T>::contains(T data) {
+	Node<T> * node = root;
+	while (node != NULL && node->data != data) {
+		if (data < node->data)
+			node = node->left;
+		else
+			node = node->right;
+	}
+
+	return node != NULL;
 }
 
 template<class T>
