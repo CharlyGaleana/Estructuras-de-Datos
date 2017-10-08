@@ -13,17 +13,70 @@ int main() {
 
 	for (int j = 0; j < n; j++) {
 		tree->insert(A[j]);
-		std::vector<int> p = tree->inOrder();
-		for (int i = 0; i < p.size(); i++)
-			std::cout << p[i] << " ";
+		tree->printLevelOrder();
 		std::cout << "\n\n";
 	}
+
+	tree->printLevelOrder();
 
 	std::cout << tree->contains(13) << "\n";
 	std::cout << tree->contains(-1) << "\n";
 	std::cout << tree->contains(31) << "\n";
 	std::cout << tree->contains(68) << "\n";
 	std::cout << tree->contains(314) << "\n";
+
+	tree->deleteElement(45);
+	tree->printLevelOrder();
+	std::cout << "\n\n";
+	
+	tree->deleteElement(48);
+	tree->printLevelOrder();
+	std::cout << "\n\n";
+
+	tree->deleteElement(33);
+	tree->printLevelOrder();
+	std::cout << "\n\n";
+
+	tree->insert(49);
+	tree->printLevelOrder();
+	std::cout << "\n\n";
+
+	tree->deleteElement(100);
+	tree->printLevelOrder();
+	std::cout << "\n\n";
+
+	tree->deleteElement(13);
+	tree->printLevelOrder();
+	std::cout << "\n\n";
+
+	tree->insert(28);
+	tree->printLevelOrder();
+	std::cout << "\n\n";
+
+	tree->insert(29);
+	tree->printLevelOrder();
+	std::cout << "\n\n";
+	
+	tree->deleteElement(8);
+	tree->printLevelOrder();
+	std::cout << "\n\n";
+
+	tree->insert(-3);
+	tree->printLevelOrder();
+	std::cout << "\n\n";
+	/*tree->deleteElement(13);
+	tree->printLevelOrder();
+	std::cout << "\n\n";
+	
+	tree->deleteElement(45);
+	tree->printLevelOrder();
+	std::cout << "\n\n";
+
+	tree->deleteElement(48);
+	tree->printLevelOrder();
+	std::cout << "\n\n";
+	*/
+
 	/*
 	tree->deleteElement(1);
 	tree->deleteElement(1);

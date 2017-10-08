@@ -2,6 +2,7 @@
 #include <stack>
 #include <vector>
 #include <cmath>
+#include <queue>
 
 #ifndef AVLTREE_H
 #define ALVTREE_H
@@ -59,6 +60,8 @@ public:
 	bool contains(T data);
 	void insert(T data);
 	void deleteElement(T data);
+	std::vector<std::vector<T>> levelOrder();
+	void printLevelOrder();
 	std::vector<T> inOrder();
 
 private:
@@ -78,6 +81,7 @@ private:
 template <class T>
 AVLTree<T>::AVLTree() {
 	root = NULL;
+	_size = 0;
 }
 
 template <class T>
@@ -140,16 +144,14 @@ void AVLTree<T>::balanceRightRight(Node<T> * node) {
 
 template<class T>
 void AVLTree<T>::balanceLeftRight(Node<T> * node) {
-	Node<T> * a, *b, *c, *A, *B, *C, *D, *p;
+	Node<T> * a, *b, *c, *B, *C, *p;
 
 	a = node;
 	b = a->left;
 	c = b->right;
 
-	A = b->left;
 	B = c->left;
 	C = c->right;
-	A = a->right;
 	p = a->parent;
 
 	if (p != NULL) {
@@ -177,16 +179,14 @@ void AVLTree<T>::balanceLeftRight(Node<T> * node) {
 
 template<class T>
 void AVLTree<T>::balanceRightLeft(Node<T> * node) {
-	Node<T> * a, *b, *c, *A, *B, *C, *D, *p;
+	Node<T> * a, *b, *c, *B, *C, *p;
 
 	a = node;
 	b = a->right;
 	c = b->left;
 
-	A = a->left;
 	B = c->left;
 	C = c->right;
-	A = b->right;
 	p = a->parent;
 
 	if (p != NULL) {
@@ -320,11 +320,11 @@ void AVLTree<T>::deleteElement(T data) {
 
 		if (parent == node) {
 			node->right = curr->right;
-			curr->right->parent = node;
+			if(curr->right != NULL) curr->right->parent = node;
 		}
 		else {
 			parent->left = curr->right;
-			curr->right->parent = parent;
+			if(curr->right != NULL) curr->right->parent = parent;
 		}
 
 		rebalanceToTheRoot(parent);
@@ -337,6 +337,10 @@ void AVLTree<T>::deleteElement(T data) {
 		parent->left = node->left;
 	else
 		parent->right = node->left;
+	if(node->left != NULL)
+		node->left->parent = parent;
+
+	rebalanceToTheRoot(parent);
 
 	delete node;
 }
@@ -365,10 +369,45 @@ void AVLTree<T>::inOrder(Node<T> * node, std::vector<T> & list) {
 }
 
 template<class T>
+std::vector< std::vector<T> > AVLTree<T>::levelOrder(){
+	std::vector< std::vector<T> > levelOrder;
+	levelOrder.resize(root->updateHeight());
+
+	std::queue< std::pair< Node<T> *, int > > q;
+	std::pair<Node<T> *, int> act = std::make_pair(root, 0);
+	q.push(act);
+
+	while(!q.empty()){
+		act = q.front();
+		q.pop();
+
+		levelOrder[act.second].push_back( act.first->data );
+		if(act.first->left != NULL)
+			q.push( std::make_pair(act.first->left, act.second + 1) );
+
+		if(act.first->right != NULL)
+			q.push( std::make_pair(act.first->right, act.second + 1) );
+	}
+
+	return levelOrder;
+}
+
+template<class T>
 std::vector<T> AVLTree<T>::inOrder() {
 	std::vector<T> ret;
 	inOrder(root, ret);
 	return ret;
+}
+
+template<class T>
+void AVLTree<T>::printLevelOrder(){
+	std::vector< std::vector<T> > order = levelOrder();
+	for(int i = 0; i < order.size(); i++){
+		std::cout << "Level " << i << ": ";
+		for(int j = 0; j < order[i].size(); j++)
+			std::cout << order[i][j] << " ";
+		std::cout << "\n";
+	}
 }
 
 template <class T>
