@@ -1,30 +1,8 @@
-﻿Build started 10/7/2017 7:16:18 PM.
-     1>Project "C:\Users\charl\Documents\Estructuras-de-Datos\Trees\Trees\Trees.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
-         main.cpp
-     1>c:\users\charl\documents\estructuras-de-datos\trees\trees\avltree.h(405): warning C4018: '<' : signed/unsigned mismatch
-                 c:\users\charl\documents\estructuras-de-datos\trees\trees\avltree.h(403) : while compiling class template member function 'void AVLTree<T>::printLevelOrder(void)'
-                 with
-                 [
-                     T=int
-                 ]
-                 c:\users\charl\documents\estructuras-de-datos\trees\trees\main.cpp(16) : see reference to function template instantiation 'void AVLTree<T>::printLevelOrder(void)' being compiled
-                 with
-                 [
-                     T=int
-                 ]
-                 c:\users\charl\documents\estructuras-de-datos\trees\trees\main.cpp(9) : see reference to class template instantiation 'AVLTree<T>' being compiled
-                 with
-                 [
-                     T=int
-                 ]
-     1>c:\users\charl\documents\estructuras-de-datos\trees\trees\avltree.h(407): warning C4018: '<' : signed/unsigned mismatch
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\charl\Documents\Estructuras-de-Datos\Trees\Debug\Trees.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\charl\Documents\Estructuras-de-Datos\Trees\Debug\Trees.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\charl\Documents\Estructuras-de-Datos\Trees\Debug\Trees.lib" /MACHINE:X86 Debug\main.obj
-         Trees.vcxproj -> C:\Users\charl\Documents\Estructuras-de-Datos\Trees\Debug\Trees.exe
-     1>Done Building Project "C:\Users\charl\Documents\Estructuras-de-Datos\Trees\Trees\Trees.vcxproj" (Build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:01.19
+﻿  main.cpp
+c:\users\hca\desktop\estructuras-de-datos\trees\trees\avltree.h(405): warning C4018: '<': no coinciden signed/unsigned
+  c:\users\hca\desktop\estructuras-de-datos\trees\trees\avltree.h(403): note: durante la compilación de la función miembro de plantilla de clase 'void AVLTree<int>::printLevelOrder(void)'
+  c:\users\hca\desktop\estructuras-de-datos\trees\trees\main.cpp(20): note: vea la referencia a la creación de instancias de plantilla de función 'void AVLTree<int>::printLevelOrder(void)' que se está compilando
+  c:\users\hca\desktop\estructuras-de-datos\trees\trees\main.cpp(9): note: vea la referencia a la creación de instancias de plantilla de clase 'AVLTree<int>' que se está compilando
+c:\users\hca\desktop\estructuras-de-datos\trees\trees\avltree.h(407): warning C4018: '<': no coinciden signed/unsigned
+  Trees.vcxproj -> C:\Users\hca\Desktop\Estructuras-de-Datos\Trees\Debug\Trees.exe
+  Trees.vcxproj -> C:\Users\hca\Desktop\Estructuras-de-Datos\Trees\Debug\Trees.pdb (Full PDB)

@@ -8,18 +8,26 @@ int main() {
 
 	AVLTree<int> * tree = new AVLTree<int>;
 
-	int n = 14;
-	int A[14] = { 100, 50, 13, 33, 8, -2, 31, 314, 69, 23, 45, 21, 48, 15 };
+	int n = 7;
+	int A[7] = { 100, 200, 300, 250, 375, 280, 290 };
 
 	for (int j = 0; j < n; j++) {
 		tree->insert(A[j]);
-		tree->printLevelOrder();
-		std::cout << "\n\n";
+		//tree->printLevelOrder();
+		//std::cout << "\n\n";
 	}
 
 	tree->printLevelOrder();
+	std::cout << "\n";
 
-	std::cout << tree->contains(13) << "\n";
+	tree->deleteElement(250);
+	tree->deleteElement(280);
+	tree->deleteElement(290);
+	tree->deleteElement(300);
+
+	tree->printLevelOrder();
+
+	/*std::cout << tree->contains(13) << "\n";
 	std::cout << tree->contains(-1) << "\n";
 	std::cout << tree->contains(31) << "\n";
 	std::cout << tree->contains(68) << "\n";
@@ -63,7 +71,7 @@ int main() {
 
 	tree->insert(-3);
 	tree->printLevelOrder();
-	std::cout << "\n\n";
+	std::cout << "\n\n"; */
 	/*tree->deleteElement(13);
 	tree->printLevelOrder();
 	std::cout << "\n\n";
