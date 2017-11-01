@@ -30,10 +30,12 @@ template <class T>
 class SkipList {
 public:
 	SkipList();
+	SkipList(int max_level);
 	~SkipList();
 	bool search(T value);
 	void insert(T value);
 	void remove(T value);
+	int size();
 
 private:
 	//void increase_size()
@@ -41,15 +43,35 @@ private:
 	int level = 1;
 	int max_level = 20;
 	int ramdomLevel();
-	SkipListNode<T> * search(T value, vector<SkipListNode<T> *> update);
+	SkipListNode<T> * search(T value, vector<SkipListNode<T> *> &update);
+	int _size;
 
 };
 
 template<class T>
 SkipList<T>::SkipList() {
-	head = new SkipListNode(1);
-	tail = new SkipListNode(1);
-	head->next[0] = tail;
+	head = new SkipListNode(max_level);
+	tail = new SkipListNode(max_level);
+
+	for(int i = 0; i < max_level; i++)
+		head->next[i] = tail;
+	_size = 0;
+}
+
+template<class T>
+SkipList<T>::SkipList(int max_level) {
+	this->max_level = max_level;
+	head = new SkipListNode(max_level);
+	tail = new SkipListNode(max_level);
+
+	for (int i = 0; i < max_level; i++)
+		head->next[i] = tail;
+	_size = 0;
+}
+
+template<class T>
+SkipList<T>::~SkipList() {
+
 }
 
 template<class T>
@@ -64,7 +86,7 @@ int SkipList<T>::ramdomLevel() {
 }
 
 template<class T>
-SkipListNode<T> * SkipList<T>::search(T value, vector<SkipListNode<T> *> update) {
+SkipListNode<T> * SkipList<T>::search(T value, vector<SkipListNode<T> *> &update) {
 	SkipListNode<T> * curr = header;
 	for (int i = level - 1; i >= 0; i--) {
 		while (curr->next[i] != tail && curr->next[i]->data < value)
@@ -73,7 +95,9 @@ SkipListNode<T> * SkipList<T>::search(T value, vector<SkipListNode<T> *> update)
 	}
 
 	curr = curr->next[0];
-	return curr;
+	if (curr != tail && curr->data == value)
+		return curr;
+	return NULL;
 }
 
 template<class T>
@@ -91,13 +115,52 @@ bool SkipList<T>::search(T value) {
 
 template<class T>
 void SkipList<T>::insert(T value) {
-	vector<SkipListNode<T> *> update(max_level);
-	SkipListNode<T> * = search(value, update);
+	vector<SkipListNode<T> *> update(level);
+	SkipListNode<T> * curr= search(value, update);
 
-	if (curr != tail) {
-	
+	if (curr == NULL) {
+		int lvl = ramdomLevel();
+		if (lvl > level) {
+			update.resize(lvl, head);
+			level = lvl;
+		}
+		SkipListNode<T> * newNode = new SkipListNode<T>(value, lvl);
+		for (int i = 0; i < lvl; i++) {
+			newNode->next[i] = update[i]->next[i];
+			update[i]->next[i] = newNode;
+		}
+
+		_size++;
 	}
+}
 
+template<class T>
+void SkipList<T>::remove(T value) {
+	vector<SkipListNode<T> *> update(level);
+	SkipListNode<T> * curr = search(value, update);
+
+	if (curr != NULL) {
+		for (int i = 0; i < level; i++) {
+			if (update[i]->next[i] != curr) break;
+			update[i]->next[i] = curr->next[i];
+		}
+
+		delete curr;
+
+		while (level > 1){
+			if (head->next[level - 1] == tail)
+				level--;
+			else
+				break;
+		}
+
+		_size--;
+	}
+}
+
+template<class T>
+int SkipList<T>::size() {
+	return _size;
 }
 
 #endif // !SKIPLIST_H

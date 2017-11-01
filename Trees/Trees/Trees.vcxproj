@@ -18,6 +18,7 @@
     <ClInclude Include="BinarySearchTree.h" />
     <ClInclude Include="BinaryTree.h" />
     <ClInclude Include="Heap.h" />
+    <ClInclude Include="SkipList.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{A3B27FB9-814F-411A-9E6B-CF8742F8F1D1}</ProjectGuid>
