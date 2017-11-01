@@ -17,6 +17,8 @@ class Heap:
 		self.datos[pos] = e
 		
 	def pop(self):
+		if self.size <= 0:
+			return
 		ret = self.datos[0]
 		self.size -= 1
 		e = self.datos[self.size]
@@ -42,6 +44,11 @@ class Heap:
 		
 		self.datos[pos] = e
 		return ret
+		
+	def printHeap(self):
+		for i in range(self.size):
+			print(datos[i]),
+		print("\n")
 
 	def top(self):
 		return datos[0]
@@ -53,11 +60,12 @@ class Heap:
 
 heap = Heap()
 
-datos = [6, 12, 13, 1, 4, 3, 2, 34, -2, 9, 7, 2, 10, 29, 7, 98, 0, 15, -1, 31, 23, 100]
+datos = [2, 4, 3, 6, 5]
 
 for i in datos:
 	heap.push(i)
 
+heap.printHeap()	
+	
 for i in range(len(datos)):
-	print (heap.pop())
- 
+	print (heap.pop()),
