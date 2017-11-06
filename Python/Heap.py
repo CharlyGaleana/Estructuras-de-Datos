@@ -47,7 +47,7 @@ class Heap:
 		
 	def printHeap(self):
 		for i in range(self.size):
-			print(datos[i]),
+			print(self.datos[i]),
 		print("\n")
 
 	def top(self):
@@ -68,4 +68,14 @@ for i in datos:
 heap.printHeap()	
 	
 for i in range(len(datos)):
+	print (heap.pop()),
+	
+for i in range (33):
+	heap.push(32 - i)
+	
+print("\n")
+
+heap.printHeap()
+
+for i in range(40):
 	print (heap.pop()),
