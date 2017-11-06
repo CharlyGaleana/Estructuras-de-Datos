@@ -2,125 +2,34 @@
 #include <algorithm>
 #include <vector>
 //#include "BinarySearchTree.h"
-#include "AVLTree.h"
+#include "SkipList.h"
 
 int main() {
 
-	AVLTree<int> * tree = new AVLTree<int>;
+	SkipList<int> * skiplist = new SkipList<int>;
 
-	int n = 7;
-	int A[7] = { 100, 200, 300, 250, 375, 280, 290 };
+	int n = 20;
+	int A[20] = {10, 8, 2, 20, 52, 3, 19, 14, 7, 9, 31, 40, 81, 24, 1, -1, 63, 25, 90, 99};
 
 	for (int j = 0; j < n; j++) {
-		tree->insert(A[j]);
+		skiplist->insert(A[j]);
 		//tree->printLevelOrder();
 		//std::cout << "\n\n";
 	}
-
-	tree->printLevelOrder();
-	std::cout << "\n";
-
-	tree->deleteElement(250);
-	tree->deleteElement(280);
-	tree->deleteElement(290);
-	tree->deleteElement(300);
-
-	tree->printLevelOrder();
-
-	/*std::cout << tree->contains(13) << "\n";
-	std::cout << tree->contains(-1) << "\n";
-	std::cout << tree->contains(31) << "\n";
-	std::cout << tree->contains(68) << "\n";
-	std::cout << tree->contains(314) << "\n";
-
-	tree->deleteElement(45);
-	tree->printLevelOrder();
-	std::cout << "\n\n";
 	
-	tree->deleteElement(48);
-	tree->printLevelOrder();
-	std::cout << "\n\n";
 
-	tree->deleteElement(33);
-	tree->printLevelOrder();
-	std::cout << "\n\n";
+	skiplist->print();
 
-	tree->insert(49);
-	tree->printLevelOrder();
-	std::cout << "\n\n";
-
-	tree->deleteElement(100);
-	tree->printLevelOrder();
-	std::cout << "\n\n";
-
-	tree->deleteElement(13);
-	tree->printLevelOrder();
-	std::cout << "\n\n";
-
-	tree->insert(28);
-	tree->printLevelOrder();
-	std::cout << "\n\n";
-
-	tree->insert(29);
-	tree->printLevelOrder();
-	std::cout << "\n\n";
+	std::cout << skiplist->search(12) << "\n";
+	std::cout << skiplist->search(90) << "\n";
+	std::cout << skiplist->search(13) << "\n";
+	std::cout << skiplist->search(1) << "\n";
 	
-	tree->deleteElement(8);
-	tree->printLevelOrder();
-	std::cout << "\n\n";
+	skiplist->remove(-1);
+	skiplist->remove(99);
+	skiplist->remove(40);
 
-	tree->insert(-3);
-	tree->printLevelOrder();
-	std::cout << "\n\n"; */
-	/*tree->deleteElement(13);
-	tree->printLevelOrder();
-	std::cout << "\n\n";
-	
-	tree->deleteElement(45);
-	tree->printLevelOrder();
-	std::cout << "\n\n";
-
-	tree->deleteElement(48);
-	tree->printLevelOrder();
-	std::cout << "\n\n";
-	*/
-
-	/*
-	tree->deleteElement(1);
-	tree->deleteElement(1);
-
-	p = tree->inOrder();
-	for (int i = 0; i < p.size(); i++)
-		std::cout << p[i] << " ";
-	std::cout << "\n\n";
-
-	tree->insert(7);
-	tree->insert(-4);
-	tree->insert(9);
-	tree->insert(1);
-
-	p = tree->inOrder();
-	for (int i = 0; i < p.size(); i++)
-		std::cout << p[i] << " ";
-	std::cout << "\n\n";
-
-	tree->deleteElement(1000);
-
-	p = tree->inOrder();
-	for (int i = 0; i < p.size(); i++)
-		std::cout << p[i] << " ";
-	std::cout << "\n\n";
-
-	tree->deleteElement(-1);
-	tree->deleteElement(2);
-
-	p = tree->inOrder();
-	for (int i = 0; i < p.size(); i++)
-		std::cout << p[i] << " ";
-	std::cout << "\n\n";
-
-	std::cout << tree->depth();
-	*/
+	skiplist->print();
 
 	int a;
 	std::cin >> a;

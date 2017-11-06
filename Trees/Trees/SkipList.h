@@ -1,5 +1,6 @@
 #include <vector>
 #include <cstdlib>
+#include <iostream>
 
 using namespace std;
 
@@ -19,7 +20,7 @@ struct SkipListNode {
 	}
 
 	~SkipListNode() {
-		next.swap( vector<SkipListNode *> () )
+		next.swap(vector<SkipListNode *>());
 	}
 
 	T data;
@@ -36,6 +37,7 @@ public:
 	void insert(T value);
 	void remove(T value);
 	int size();
+	void print();
 
 private:
 	//void increase_size()
@@ -50,8 +52,8 @@ private:
 
 template<class T>
 SkipList<T>::SkipList() {
-	head = new SkipListNode(max_level);
-	tail = new SkipListNode(max_level);
+	head = new SkipListNode<T>(max_level);
+	tail = new SkipListNode<T>(max_level);
 
 	for(int i = 0; i < max_level; i++)
 		head->next[i] = tail;
@@ -87,7 +89,7 @@ int SkipList<T>::ramdomLevel() {
 
 template<class T>
 SkipListNode<T> * SkipList<T>::search(T value, vector<SkipListNode<T> *> &update) {
-	SkipListNode<T> * curr = header;
+	SkipListNode<T> * curr = head;
 	for (int i = level - 1; i >= 0; i--) {
 		while (curr->next[i] != tail && curr->next[i]->data < value)
 			curr = curr->next[i];
@@ -102,7 +104,7 @@ SkipListNode<T> * SkipList<T>::search(T value, vector<SkipListNode<T> *> &update
 
 template<class T>
 bool SkipList<T>::search(T value) {
-	SkipListNode<T> * curr = header;
+	SkipListNode<T> * curr = head;
 	for (int i = level - 1; i >= 0; i--) 
 		while (curr->next[i] != tail && curr->next[i]->data < value)
 			curr = curr->next[i];
@@ -161,6 +163,24 @@ void SkipList<T>::remove(T value) {
 template<class T>
 int SkipList<T>::size() {
 	return _size;
+}
+
+template<class T>
+void SkipList<T>::print() {
+	SkipListNode<T> * curr = head;
+	std::cout << level << "\n\n";
+
+
+	while (curr != tail) {
+		std::cout << "------ " << curr->data << "\n";
+		for (int i = 0; i < curr->next.size(); i++)
+			std::cout << curr->next[i]->data << " ";
+		std::cout << "\n\n";
+
+		curr = curr->next[0];
+	}
+
+	std::cout << "\n\n";
 }
 
 #endif // !SKIPLIST_H

@@ -1,8 +1,7 @@
 ﻿  main.cpp
-c:\users\hca\desktop\estructuras-de-datos\trees\trees\avltree.h(405): warning C4018: '<': no coinciden signed/unsigned
-  c:\users\hca\desktop\estructuras-de-datos\trees\trees\avltree.h(403): note: durante la compilación de la función miembro de plantilla de clase 'void AVLTree<int>::printLevelOrder(void)'
-  c:\users\hca\desktop\estructuras-de-datos\trees\trees\main.cpp(20): note: vea la referencia a la creación de instancias de plantilla de función 'void AVLTree<int>::printLevelOrder(void)' que se está compilando
-  c:\users\hca\desktop\estructuras-de-datos\trees\trees\main.cpp(9): note: vea la referencia a la creación de instancias de plantilla de clase 'AVLTree<int>' que se está compilando
-c:\users\hca\desktop\estructuras-de-datos\trees\trees\avltree.h(407): warning C4018: '<': no coinciden signed/unsigned
+c:\users\hca\desktop\estructuras-de-datos\trees\trees\skiplist.h(176): warning C4018: '<': no coinciden signed/unsigned
+  c:\users\hca\desktop\estructuras-de-datos\trees\trees\skiplist.h(169): note: durante la compilación de la función miembro de plantilla de clase 'void SkipList<int>::print(void)'
+  c:\users\hca\desktop\estructuras-de-datos\trees\trees\main.cpp(21): note: vea la referencia a la creación de instancias de plantilla de función 'void SkipList<int>::print(void)' que se está compilando
+  c:\users\hca\desktop\estructuras-de-datos\trees\trees\main.cpp(9): note: vea la referencia a la creación de instancias de plantilla de clase 'SkipList<int>' que se está compilando
   Trees.vcxproj -> C:\Users\hca\Desktop\Estructuras-de-Datos\Trees\Debug\Trees.exe
   Trees.vcxproj -> C:\Users\hca\Desktop\Estructuras-de-Datos\Trees\Debug\Trees.pdb (Full PDB)
