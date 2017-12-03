@@ -61,23 +61,36 @@ class Heap:
 		return 0
 
 heap = Heap()
+vis = set()
 
-datos = [2, 4, 3, 6, 5]
+edges = [ ('A', 'B', 10), ('C', 'A', 12), ('C', 'B', 9), ('B', 'D', 8), ('C', 'E', 3), ('D', 'E', 7), ('C','F', 1), ('F', 'E', 3), ('F', 'H', 6), ('H', 'D', 5), ('D', 'G', 8), ('G', 'H', 9), ('G', 'I', 2), ('H', 'I', 11)  ];
+nodes = [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I' ]
+E = {}
 
-for i in datos:
-	heap.push(i)
-
-heap.printHeap()	
+for node in nodes:
+	E[node] = []
 	
-for i in range(len(datos)):
-	print (heap.pop()),
-	
-for i in range (33):
-	heap.push(32 - i)
-	
-print("\n")
+for edge in edges:
+	E[edge[0]].append( (edge[2], edge[1]) )
+	E[edge[1]].append( (edge[2], edge[0]) )
 
-heap.printHeap()
+MST = []
+heap.push( (0, nodes[0], nodes[0]) )
+cost = 0
 
-for i in range(40):
-	print (heap.pop()),
+while not heap.empty():
+	newEdge = heap.pop();
+	node = newEdge[1];
+	parent = newEdge[2];
+	if not node in vis:
+		vis.add(node)
+		cost += newEdge[0];
+		if node != parent:
+			MST.append(newEdge)
+		
+		for edge in E[node]:
+			if edge[1] not in vis:
+				heap.push( (edge[0], edge[1], node) )
+
+print(cost)
+print(MST)
